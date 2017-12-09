@@ -1,0 +1,40 @@
+Recording WAVE 'test.wav' : Signed 16 bit Little Endian, Rate 24000 Hz, Mono
+['16\n', '55\n', 'Enabled']
+Screen Updated 08-12-2016 16:49:52
+Temperature: 29 C
+Humidity: 38 %
+Screen Updated 08-12-2016 16:50:00
+Temperature: 29 C
+Humidity: 38 %
+Screen Updated 08-12-2016 16:51:00
+Temperature: 29 C
+Humidity: 37 %
+Traceback (most recent call last):
+  File "/home/pi/Desktop/Assembly_Project/speech.py", line 112, in listen
+    print("Google Speech Recognition thinks you said " + "\"" + r.recognize_google(audio) + "\"")
+  File "/usr/local/lib/python3.4/dist-packages/speech_recognition/__init__.py", line 665, in recognize_google
+    result = json.loads(line)["result"]
+  File "/usr/lib/python3.4/json/__init__.py", line 318, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3.4/json/decoder.py", line 343, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python3.4/json/decoder.py", line 361, in raw_decode
+    raise ValueError(errmsg("Expecting value", s, err.value)) from None
+ValueError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 185, in <module>
+    initialize()
+  File "main.py", line 65, in initialize
+    mainPgrm()
+  File "main.py", line 169, in mainPgrm
+    Voice_Button()
+  File "main.py", line 110, in Voice_Button
+    SP().transcribe()
+  File "/home/pi/Desktop/Assembly_Project/speech.py", line 138, in transcribe
+    text = self.listen()
+  File "/home/pi/Desktop/Assembly_Project/speech.py", line 123, in listen
+    except sr.ValueError as e:
+AttributeError: 'module' object has no attribute 'ValueError'
